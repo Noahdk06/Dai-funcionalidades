@@ -1,38 +1,35 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button, Alert } from 'react-native';
+import { View, TextInput, Button, Text } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function EmergencyConfigScreen() {
-  const [emergencyNumber, setEmergencyNumber] = useState('');
+const EmergencyConfigScreen = () => {
+  const [phone, setPhone] = useState('');
 
   useEffect(() => {
-    const loadEmergencyNumber = async () => {
-      const number = await AsyncStorage.getItem('emergencyNumber');
-      if (number) setEmergencyNumber(number);
+    const getPhone = async () => {
+      const storedPhone = await AsyncStorage.getItem('emergencyPhone');
+      if (storedPhone) setPhone(storedPhone);
     };
-    loadEmergencyNumber();
+    getPhone();
   }, []);
 
-  const saveEmergencyNumber = async () => {
-    if (!/^\d+$/.test(emergencyNumber)) {
-      Alert.alert("Número inválido", "Ingresa un número válido.");
-      return;
-    }
-    await AsyncStorage.setItem('emergencyNumber', emergencyNumber);
-    Alert.alert("Número guardado", "Número de emergencia configurado correctamente.");
+  const savePhone = async () => {
+    await AsyncStorage.setItem('emergencyPhone', phone);
+    alert('Número guardado!');
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text>Configurar Número de Emergencia:</Text>
+    <View>
+      <Text>Configura Número de Emergencia:</Text>
       <TextInput
-        value={emergencyNumber}
-        onChangeText={setEmergencyNumber}
+        keyboardType="phone-pad"
         placeholder="Número de Emergencia"
-        keyboardType="numeric"
-        style={{ borderBottomWidth: 1, marginBottom: 20 }}
+        value={phone}
+        onChangeText={setPhone}
       />
-      <Button title="Guardar Número" onPress={saveEmergencyNumber} />
+      <Button title="Guardar Número" onPress={savePhone} />
     </View>
   );
-}
+};
+
+export default EmergencyConfigScreen;
