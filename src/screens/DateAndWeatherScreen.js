@@ -9,7 +9,7 @@ const DateAndWeatherScreen = () => {
   const [dateTime, setDateTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [errorMsg, setErrorMsg] = useState(null);
-  const [scale] = useState(new Animated.Value(1)); // Animación de escala
+  const [scale] = useState(new Animated.Value(1)); 
 
   useEffect(() => {
     const updateDateTime = () => {
@@ -46,7 +46,7 @@ const DateAndWeatherScreen = () => {
     };
 
     const fetchWeather = async (latitude, longitude) => {
-      const apiKey = '989614a8f5ad010e430304b554547c1b'; // Reemplaza con tu propia clave
+      const apiKey = '989614a8f5ad010e430304b554547c1b'; 
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
       try {
         const response = await axios.get(url);
@@ -65,10 +65,10 @@ const DateAndWeatherScreen = () => {
   }, [scale]);
 
   const getTemperatureColor = (temp) => {
-    if (temp <= 0) return '#74b9ff'; // Azul frío
-    if (temp <= 15) return '#55efc4'; // Verde suave
-    if (temp <= 30) return '#fdcb6e'; // Amarillo cálido
-    return '#e17055'; // Naranja cálido
+    if (temp <= 0) return '#74b9ff'; 
+    if (temp <= 15) return '#55efc4';
+    if (temp <= 30) return '#fdcb6e'; 
+    return '#e17055'; 
   };
 
   if (loading) {
@@ -108,19 +108,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#2d3436', // Fondo oscuro
+    backgroundColor: '#2d3436', 
     padding: 20,
   },
   title: {
     fontSize: 32,
     fontWeight: '600',
-    color: '#ffffff', // Título blanco
+    color: '#ffffff', 
     marginBottom: 30,
     fontFamily: 'sans-serif-condensed',
   },
   location: {
     fontSize: 18,
-    color: '#55efc4', // Verde suave para la ubicación
+    color: '#55efc4',
     marginBottom: 10,
   },
   text: {
@@ -140,12 +140,12 @@ const styles = StyleSheet.create({
   },
   date: {
     fontSize: 20,
-    color: '#ffffff', // Blanco para la fecha
+    color: '#ffffff', 
     marginBottom: 5,
   },
   time: {
     fontSize: 24,
-    color: '#ffffff', // Blanco para la hora
+    color: '#ffffff', 
   },
   loader: {
     flex: 1,
@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   error: {
-    color: '#e17055', // Naranja para mensajes de error
+    color: '#e17055', 
     fontSize: 18,
     marginTop: 20,
   },

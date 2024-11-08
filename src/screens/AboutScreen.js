@@ -15,14 +15,14 @@ const AboutScreen = () => {
       <Text style={styles.teamText}>Iván Frankowski, Noah Denenberg Korob, Uma Gotfryd</Text>
     </View>
   );
-};
+}; 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f8f9fa', // Fondo suave
+    backgroundColor: '#f8f9fa', 
     padding: 20,
   },
   title: {
@@ -43,10 +43,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   logo: {
-    width: 100,   // Ajusta el ancho según tus necesidades
-    height: 100,  // Ajusta el alto según tus necesidades
+    width: 100,  
+    height: 100,  
     marginTop: 20,
-    resizeMode: 'contain', // Mantiene la proporción de la imagen
+    resizeMode: 'contain', 
   },
 });
 
