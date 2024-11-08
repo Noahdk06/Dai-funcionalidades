@@ -2,15 +2,16 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 const AboutScreen = () => {
-  // Ruta local de la imagen o URL remota
-  const imageSource = require('./img/ec.png'); // Para imagen local
-  // const imageSource = { uri: 'https://tu-imagen-url.com/logo.png' }; // Para imagen remota
+  const qrValue = "Integrantes: Iván Frankowski, Noah Denenberg Korob y Uma Gotfryd";
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Acerca de la Aplicación</Text>
-      <Image source={imageSource} style={styles.image} />
       <Text style={styles.subtitle}>Proyecto desarrollado por:</Text>
+      <Image
+        source={{ uri: 'https://www.rumblestars.net/img/rumblers/rs-explosivechick.png' }}
+        style={styles.logo}
+      />
       <Text style={styles.teamText}>Iván Frankowski, Noah Denenberg Korob, Uma Gotfryd</Text>
     </View>
   );
@@ -40,6 +41,12 @@ const styles = StyleSheet.create({
     color: '#777',
     marginTop: 10,
     textAlign: 'center',
+  },
+  logo: {
+    width: 100,   // Ajusta el ancho según tus necesidades
+    height: 100,  // Ajusta el alto según tus necesidades
+    marginTop: 20,
+    resizeMode: 'contain', // Mantiene la proporción de la imagen
   },
 });
 
