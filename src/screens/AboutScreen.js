@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import QRCode from 'react-native-qrcode-svg';
 
 const AboutScreen = () => {
   const qrValue = "Integrantes: Iván Frankowski, Noah Denenberg Korob y Uma Gotfryd";
@@ -8,14 +9,11 @@ const AboutScreen = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Acerca de la Aplicación</Text>
       <Text style={styles.subtitle}>Proyecto desarrollado por:</Text>
-      <Image
-        source={{ uri: 'https://www.rumblestars.net/img/rumblers/rs-explosivechick.png' }}
-        style={styles.logo}
-      />
+      <QRCode value={qrValue} size={150} />
       <Text style={styles.teamText}>Iván Frankowski, Noah Denenberg Korob, Uma Gotfryd</Text>
     </View>
   );
-}; 
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -41,12 +39,6 @@ const styles = StyleSheet.create({
     color: '#777',
     marginTop: 10,
     textAlign: 'center',
-  },
-  logo: {
-    width: 100,  
-    height: 100,  
-    marginTop: 20,
-    resizeMode: 'contain', 
   },
 });
 

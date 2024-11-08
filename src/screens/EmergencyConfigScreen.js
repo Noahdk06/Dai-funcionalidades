@@ -14,6 +14,10 @@ const EmergencyConfigScreen = () => {
   }, []);
 
   const savePhone = async () => {
+    if (phone.length < 8) {
+      Alert.alert('Error', 'El número de teléfono debe tener al menos 8 caracteres');
+      return;
+    }
     await AsyncStorage.setItem('emergencyPhone', phone);
     Alert.alert('Número guardado!');
   };
